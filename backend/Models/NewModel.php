@@ -33,7 +33,9 @@ class NewModel extends BaseModel
         $data = [];
 
         while ($row = mysqli_fetch_assoc($query)) {
-            array_push($data, $row);
+            if ($row['status']=='1'){
+                array_push($data, $row);
+            }
         }
 
         return $data;

@@ -37,23 +37,7 @@ class CommentController extends BaseController
         ];
 
         $this->commentModel->store($data);
-        header("Location: ../frontend/new.html?id=".$_GET['new_id']);
-    }
-
-    public function editRoom()
-    {
-        $id = $_GET['id'];
-        $data = [
-            'name'      => $_POST['name'],
-            'location'  => $_POST['location'],
-            'img'       => $_POST['img'],
-            'capacity'  => $_POST['capacity'],
-            'utility'   => $_POST['utility']
-        ];
-
-        $this->commentModel->edit($id, $data);
-
-        header("Location: ../frontend/dashboard.html?tab=mgr__room");
+        header("Location: ../frontend/post.html?id=".$_GET['new_id']);
     }
 
     public function delCmt()

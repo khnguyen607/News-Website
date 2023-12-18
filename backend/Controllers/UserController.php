@@ -32,12 +32,10 @@ class UserController extends BaseController
     public function addUser()
     {
         $data = [
-            'email'  => $_POST['email'],
             'name'  => $_POST['name'],
             'user'  => $_POST['user'],
             'pass'  => $_POST['pass']
         ];
-
         if ($this->userModel->checkuser_name($data['user'])) {
             $this->userModel->store($data);
             header("Location: ../frontend/login.html?signupT=" . $data['user']);

@@ -1,8 +1,8 @@
 <div class="side-nav header__top">
     <div class="side-nav-inner nicescroll-container">
-        <form action="#" class="side-nav-search-form">
+        <form action="posts.html" class="side-nav-search-form">
             <div class="form-group search-field">
-                <input type="text" class="search-field" name="search-field" placeholder="Tìm kiếm...">
+                <input type="text" class="search-field" name="q" placeholder="Tìm kiếm...">
                 <button class="side-nav-search-btn"><i class="fas fa-search"></i></button>
             </div>
             <!-- End of .side-nav-search-form -->
@@ -11,11 +11,7 @@
         <div class="side-nav-content">
             <div class="row ">
                 <div class="col-lg-6">
-                    <ul class="main-navigation side-navigation list-inline flex-column">
-                        <li><a href="#">Doanh nghiệp</a></li>
-                        <li><a href="#">Đời sống</a></li>
-                        <li><a href="#">Công nghệ</a></li>
-                        <li><a href="#">Thể thao</a></li>
+                    <ul class="main-navigation side-navigation list-inline flex-column category__list">
                     </ul>
                     <!-- End of .main-navigation -->
                 </div>
@@ -72,8 +68,10 @@
             <div class="row align-items-center">
                 <div class="col-md">
                     <ul class="header-top-nav list-inline justify-content-center justify-content-md-start">
-                        <li class="current-date">08 Th12, 2023</li>
-                        <li><a href="login.html">Đăng nhập</a></li>
+                        <li class="current-date">19 Th12, 2023</li>
+                        <li><a href="login.html" class="btn__login">Đăng nhập</a></li>
+                        <li><a href="../backend/index.php?controller=user&action=logout" class="btn__logout d-none">Đăng xuất</a></li>
+                        <li class="header__name d-none"></li>
                     </ul>
                 </div>
                 <div class="col-md-auto">
@@ -101,14 +99,10 @@
                 <!-- End of .brand-logo-container -->
                 <div class="main-nav-wrapper">
                     <ul class="main-navigation list-inline" id="main-menu">
-                        <li class="is-active"><a href="index.html">Trang chủ</a></li>
-                        <li class="has-dropdown">
+                        <li class="index"><a href="index.html">Trang chủ</a></li>
+                        <li class="has-dropdown is-active">
                             <a href="#">Bài viết</a>
-                            <ul class="submenu">
-                                <li><a href="posts.html">Doanh nghiệp</a></li>
-                                <li><a href="posts.html">Đời sống</a></li>
-                                <li><a href="posts.html">Công nghệ</a></li>
-                                <li><a href="posts.html">Thể thao</a></li>
+                            <ul class="submenu category__list">
                             </ul>
                         </li>
                     </ul>
@@ -126,13 +120,13 @@
                         <a href="#" class="navbar-search-close"><i class="fal fa-times"></i></a>
                     </form>
                     <!-- End of .navbar-search -->
-                    <a href="#" class="nav-search-field-toggler" data-toggle="nav-search-feild"><i
+                    <a href="#" class="side-nav-toggler" id="side-nav-toggler"><i
                             class="far fa-search"></i></a>
-                    <a href="#" class="side-nav-toggler" id="side-nav-toggler">
+                    <!-- <a href="#" class="side-nav-toggler" id="side-nav-toggler">
                         <span></span>
                         <span></span>
                         <span></span>
-                    </a>
+                    </a> -->
                 </div>
                 <!-- End of .navbar-extra-features -->
                 <div class="main-nav-toggler d-block d-lg-none" id="main-nav-toggler">
@@ -186,7 +180,7 @@
         <!-- End of .footer-mid -->
         <div class="footer-bottom">
             <ul class="footer-bottom-links">
-                <li><a href="#">Terms of Use</a></li>
+                <li><a href="admin/index.html">TRANG QUẢN TRỊ</a></li>
                 <li><a href="#">Accessibility & CC</a></li>
                 <li><a href="#">AdChoices</a></li>
                 <li><a href="#">Modern Slavery Act Statement</a></li>
@@ -199,7 +193,7 @@
             </ul>
             <!-- End of .footer-bottom-links -->
             <p class="axil-copyright-txt">
-                © 2023. Thiết kế.
+                © 2023. Thiết kế bởi nhóm 5
             </p>
         </div>
         <!-- End of .footer-bottom -->

@@ -7,7 +7,9 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap-grid.css.map" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!--Stylesheet-->
     <style media="screen">
         *,
@@ -69,7 +71,7 @@
         }
 
         form * {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             color: #ffffff;
             letter-spacing: 0.5px;
             outline: none;
@@ -152,7 +154,8 @@
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form class="form__login">
+
+    <form class="form__login" action="../backend/index.php?controller=user&action=login" method="post">
         <h3>Đăng nhập</h3>
         <a onclick="changetab(1)" style="cursor: pointer;">Đăng ký tài khoản</a>
         <label for="username">Tên đăng nhập</label>
@@ -160,22 +163,22 @@
 
         <label for="password">Mật khẩu</label>
         <input type="password" placeholder="Mật khẩu" id="password" name="pass">
-
         <button>Đăng nhập</button>
     </form>
 
-    <form class="form__logout" style="display: none;" action="../backend/index.php?controller=user&action=addUser" method="post">
+    <form class="form__signup" style="display: none;" action="../backend/index.php?controller=user&action=addUser"
+        method="post">
         <h3>Đăng ký</h3>
         <a onclick="changetab(2)" style="cursor: pointer;">Đăng nhập tài khoản</a>
 
         <label for="up__name">Họ và tên</label>
-        <input type="text" placeholder="Nhập họ và tên" id="up__name" name="name">
+        <input type="text" placeholder="Nhập họ và tên" id="up__name" name="name" required>
 
         <label for="up__username">Tên đăng nhập</label>
-        <input type="text" placeholder="Nhập tên đăng nhập" id="up__username" name="user">
+        <input type="text" placeholder="Nhập tên đăng nhập" id="up__username" name="user" required>
 
         <label for="up__password">Mật khẩu</label>
-        <input type="password" placeholder="Mật khẩu" id="up__password" name="pass">
+        <input type="password" placeholder="Mật khẩu" id="up__password" name="pass" required>
 
         <button style="margin-top: 1rem;">Đăng ký</button>
 
@@ -187,18 +190,33 @@
         switch (e) {
             case 2:
                 document.querySelector('.form__login').style.display = 'block'
-                document.querySelector('.form__logout').style.display = 'none'
+                document.querySelector('.form__signup').style.display = 'none'
                 break;
 
             case 1:
                 document.querySelector('.form__login').style.display = 'none'
-                document.querySelector('.form__logout').style.display = 'block'
+                document.querySelector('.form__signup').style.display = 'block'
                 break;
         }
 
     }
 
-    
+    // Lấy biên get trình duyệt
+    var signupT = new URLSearchParams(window.location.search).get('signupT')
+    var signupF = new URLSearchParams(window.location.search).get('signupF')
+    var loginF = new URLSearchParams(window.location.search).get('loginF')
+
+    if (signupT) {
+        document.querySelector('#username').value = signupT
+        alert('Đăng ký tài khoản thành công')
+    } else if (signupF) {
+        changetab(1)
+        // document.querySelector('#form__signup input[name="name"]').value = signupF
+        alert('Thất bại: Trùng tên đăng nhập!')
+    } else if (loginF) {
+        document.querySelector('#username').value = loginF
+        alert('Thất bại: Sai tên tài khoản mật khẩu!')
+    }
 </script>
 
 </html>

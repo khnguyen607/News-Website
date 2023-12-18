@@ -3,7 +3,7 @@ class Database{
     private $host = 'localhost';
     private $user = 'root';
     private $pass = '';
-    private $database = 'bignew';
+    private $database = 'papr';
     private $conn;
 
     public function connect() {
